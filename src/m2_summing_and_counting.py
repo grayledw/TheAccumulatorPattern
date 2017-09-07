@@ -136,37 +136,38 @@ def test_count_sines_from():
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
 
+
+
+    # ------------------------------------------------------------------
+    # Done: 4 (continued).
+    # Below this comment, add 5 more test cases of your own choosing.
+    # ------------------------------------------------------------------
+
+
     expected1 = 6
-    answer1 = count_sines_from(3,10)
+    answer1 = count_sines_from(3, 10)
     print('Test 2 expected:', expected1)
     print('        actual: ', answer1)
 
     expected2 = 6
-    answer2 = count_sines_from(3,11)
+    answer2 = count_sines_from(3, 11)
     print('Test 3 expected:', expected2)
     print('        actual: ', answer1)
 
     expected3 = 6
-    answer3 = count_sines_from(3,12)
+    answer3 = count_sines_from(3, 12)
     print('Test 4 expected:', expected3)
     print('        actual: ', answer1)
 
     expected4 = 6
-    answer4 = count_sines_from(3,13)
+    answer4 = count_sines_from(3, 13)
     print('Test 5 expected:', expected4)
     print('        actual: ', answer1)
 
     expected5 = 6
-    answer5 = count_sines_from(3,14)
+    answer5 = count_sines_from(3, 14)
     print('Test 6 expected:', expected5)
     print('        actual: ', answer1)
-
-
-
-    # ------------------------------------------------------------------
-    # TO DO: 4 (continued).
-    # Below this comment, add 5 more test cases of your own choosing.
-    # ------------------------------------------------------------------
 
 
 def count_sines_from(m, n):
@@ -198,7 +199,7 @@ def count_sines_from(m, n):
             count = count +  0
     return count
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
@@ -233,6 +234,32 @@ def test_count_sines_vs_cosines():
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    expected = 101
+    answer = count_sines_vs_cosines(102)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    expected = 1
+    answer = count_sines_vs_cosines(1)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
+
+    expected = 0
+    answer = count_sines_vs_cosines(0)
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+
+
+    expected = 2
+    answer = count_sines_vs_cosines(2)
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    expected = 4
+    answer = count_sines_vs_cosines(3)
+    print('Test 6 expected:', expected)
+    print('       actual:  ', answer)
+
 
 def count_sines_vs_cosines(m):
     """
@@ -266,7 +293,17 @@ def count_sines_vs_cosines(m):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    count = 0
+    a = (m*2) + 1
+    for k in range(a):
+        c = math.sin(-m+k)
+        d = math.cos(-m+k)
+        if c > d:
+            count = count + 1
+        else:
+            count = count + 0
 
+    return count
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
