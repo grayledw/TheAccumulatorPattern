@@ -7,8 +7,8 @@ A subsequent module lets you practice the ACCUMULATOR pattern in another classic
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Derek Grayless.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 # ----------------------------------------------------------------------
@@ -21,6 +21,8 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 #        -- IN the loop?
 #        -- AFTER the loop?
 # ----------------------------------------------------------------------
+import math
+
 def main():
     """ Calls the   TEST   functions in this module. """
     test_sum_more_cosines()
@@ -31,7 +33,7 @@ def main():
 def test_sum_more_cosines():
     """ Tests the   sum_more_cosines   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done. Implement this TEST function.
     #   It TESTS the  sum_more_cosines  function defined below.
     #   Include at least **   3   ** tests (we wrote one for you).
     #
@@ -62,6 +64,16 @@ def test_sum_more_cosines():
     print('Test 1 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
 
+    expected1 = -.519480
+    answer1 = sum_more_cosines(0,4)
+    print('Test 2 expected:', expected1)
+    print('     actual', answer1)
+
+    expected2 = -.2358184627
+    answer2 = sum_more_cosines(0,5)
+    print('Test 3 expected:', expected2)
+    print('     actual:', answer2)
+
     # ------------------------------------------------------------------
     # TO DO: 2 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
@@ -82,6 +94,13 @@ def sum_more_cosines(m, n):
             cos(-4) + cos(-3) + cos(-2) + cos(-1) + cos(0) + cos(1)
          which is approximately 0.02082.
     """
+
+    add = 0
+    r = n - m + 1
+    for k in range(r):
+        add = add + ((math.cos(k+m)))
+    return add
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -117,6 +136,33 @@ def test_count_sines_from():
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
 
+    expected1 = 6
+    answer1 = count_sines_from(3,10)
+    print('Test 2 expected:', expected1)
+    print('        actual: ', answer1)
+
+    expected2 = 6
+    answer2 = count_sines_from(3,11)
+    print('Test 3 expected:', expected2)
+    print('        actual: ', answer1)
+
+    expected3 = 6
+    answer3 = count_sines_from(3,12)
+    print('Test 4 expected:', expected3)
+    print('        actual: ', answer1)
+
+    expected4 = 6
+    answer4 = count_sines_from(3,13)
+    print('Test 5 expected:', expected4)
+    print('        actual: ', answer1)
+
+    expected5 = 6
+    answer5 = count_sines_from(3,14)
+    print('Test 6 expected:', expected5)
+    print('        actual: ', answer1)
+
+
+
     # ------------------------------------------------------------------
     # TO DO: 4 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
@@ -142,6 +188,15 @@ def count_sines_from(m, n):
       -- count_sines_from(7, 7)  returns  0
       -- count_sines_from(9, 9)  returns  1
     """
+    count = 0
+    a  = n - m + 1
+    for k in range(a):
+        c = math.sin(m + k)
+        if c < 0.5:
+            count = count + 1
+        else:
+            count = count +  0
+    return count
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
