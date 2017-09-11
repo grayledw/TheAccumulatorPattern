@@ -149,6 +149,30 @@ def test_draw_circles_from_rectangle():
     ####################################################################
     # ------------------------------------------------------------------
 
+    # ------------------------------------------------------------------
+    # TWO tests on ONE window.
+    # ------------------------------------------------------------------
+    window1 = rg.RoseWindow(650, 350)
+
+    # Test 1:
+    rectangle = rg.Rectangle(rg.Point(15,15), rg.Point(25,30))
+    draw_circles_from_rectangle(4,7,rectangle,window1)
+
+    # Test 2:
+    rectangle = rg.Rectangle(rg.Point(20, 20), rg.Point(30, 35))
+    draw_circles_from_rectangle(5, 8, rectangle, window1)
+
+    # ------------------------------------------------------------------
+    # A third test on ANOTHER window.
+    # ------------------------------------------------------------------
+    window2 = rg.RoseWindow(525, 300)
+
+    # Test 3:
+    rectangle = rg.Rectangle(rg.Point(25, 25), rg.Point(30, 35))
+    draw_circles_from_rectangle(6, 9, rectangle, window2)
+
+    window2.close_on_mouse_click()
+
 
 def draw_circles_from_rectangle(m, n, rectangle, window):
     """
@@ -189,6 +213,17 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window: rg.RoseWindow
     """
+
+    height = rectangle.get_height()
+    width = rectangle.get_width()
+    circleradius = height / 2
+    center = rectangle.get_center()
+
+    for k in range(m):
+        circle = rg.Circle(center, circleradius)
+        circlecenter = center - width / 2 - circleradius
+        point.move_to(-height,0)
+
     # ------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
     #          Tests have been written for you (above).
