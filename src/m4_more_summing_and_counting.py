@@ -263,6 +263,13 @@ def count_cosines_from(m, n, x):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    count = 0
+    for k in range((n - m) + 1):
+        if math.cos(k + m) > x:
+            count = count + 1
+        else:
+            count = count + 0
+    return count
 
 
 def test_sum_unit_fractions_from():
@@ -289,6 +296,24 @@ def test_sum_unit_fractions_from():
     # Below this comment, add 2 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected = 1  # This is APPROXIMATELY the correct answer.
+    answer = sum_unit_fractions_from(1, 1)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 1.5  # This is APPROXIMATELY the correct answer.
+    answer = sum_unit_fractions_from(1, 2)
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 4:
+    expected = 1.8333333  # This is APPROXIMATELY the correct answer.
+    answer = sum_unit_fractions_from(1, 3)
+    print('Test 4 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
 
 def sum_unit_fractions_from(m, n):
     """
@@ -311,6 +336,10 @@ def sum_unit_fractions_from(m, n):
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
 
+    total = 0
+    for k in range((n-m)+1):
+        total = total + (1/(m + k))
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
