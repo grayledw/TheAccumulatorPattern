@@ -125,6 +125,13 @@ def sum_from(m, n):
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
 
+    total = 0
+    for k in range((n - m) + 1):
+        total = total + (k + m)
+
+    return total
+
+
 
 def test_factorial():
     """ Tests the   factorial   function. """
@@ -180,6 +187,11 @@ def factorial(n):
     #   use an explicit    for ... in range(...):     statement.
     # ------------------------------------------------------------------
 
+    total = 1
+    for k in range(n):
+        total = total * (k + 1)
+
+    return total
 
 def test_count_cosines_from():
     """ Tests the   count_cosines_from   function. """
