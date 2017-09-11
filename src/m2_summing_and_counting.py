@@ -285,6 +285,7 @@ def count_sines_vs_cosines(m):
       -- count_sines_vs_cosines(1) returns 1
       -- Also:  count_sines_vs_cosines(101) returns 100 (trust me!)
     """
+
     # ------------------------------------------------------------------
     # TODO: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
