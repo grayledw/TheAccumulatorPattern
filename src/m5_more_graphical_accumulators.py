@@ -214,15 +214,15 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
       :type window: rg.RoseWindow
     """
 
-    height = rectangle.get_height()
-    width = rectangle.get_width()
-    circleradius = height / 2
-    center = rectangle.get_center()
-
-    for k in range(m):
-        circle = rg.Circle(center, circleradius)
-        circlecenter = center - width / 2 - circleradius
-        point.move_to(-height,0)
+    # height = rectangle.get_height()
+    # width = rectangle.get_width()
+    # circleradius = height / 2
+    # center = rectangle.get_center()
+    #
+    # for k in range(m):
+    #     circle = rg.Circle(center, circleradius)
+    #     circlecenter = center - width / 2 - circleradius
+    #     point.move_to(-height,0)
 
     # ------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
@@ -281,6 +281,30 @@ def test_draw_lines_from_rectangles():
 
 
 def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
+
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+    center1 = rectangle1.get_center()
+    center2 = rectangle2.get_center()
+    width = rectangle1.get_width()
+    height = rectangle1.get_height()
+
+    for k in range(n):
+        line1 = rg.Line(rg.Point(center1.x, center1.y), rg.Point(center2.x, center2.y))
+        line1.thickness = 5
+        if k % 2 == 0:
+            line1.color = rectangle1.outline_color
+        else:
+            line1.color = rectangle2.outline_color
+        center1.x = center1.x - (width / 2)
+        center1.y = center1.y + (height / 2)
+        center2.x = center2.x - (width / 2)
+        center2.y = center2.y + (height / 2)
+        line1.attach_to(window)
+
+
+    window.render()
+
     """
     What comes in:  Four arguments:
       -- Two rg.Rectangles.
